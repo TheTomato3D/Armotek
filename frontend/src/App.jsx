@@ -19,7 +19,7 @@ import Shipping from "./pages/Shipping";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Armotek">
       <Navbar />
 
       <main>
