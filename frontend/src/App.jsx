@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -21,7 +21,7 @@ import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <BrowserRouter basename="/Armotek">
+    <HashRouter>
       <Navbar />
 
       <main>
@@ -47,7 +47,7 @@ function App() {
       </main>
 
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
