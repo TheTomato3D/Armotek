@@ -25,19 +25,13 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+
           <Route path="/sillas" element={<Chairs />} />
           <Route path="/muebles" element={<Furniture />} />
           <Route path="/ofertas" element={<Offers />} />
           <Route path="/liquidacion" element={<Clearance />} />
           <Route path="/carrito" element={<Cart />} />
-          <Route path="/terminos-condiciones" element={<Terms />} />
-          <Route path="/devoluciones" element={<Returns />} />
-          <Route path="/envios" element={<Shipping />} />
-          <Route path="/privacidad" element={<Privacy />} />
-          <Route path="/garantias" element={<Warranty />} />
-          <Route path="/devoluciones" element={<Returns />} />
-          <Route path="/privacidad" element={<Privacy />} />
-          <Route path="/garantias" element={<Warranty />} />
+
           <Route path="/terminos-condiciones" element={<Terms />} />
           <Route path="/devoluciones" element={<Returns />} />
           <Route path="/envios" element={<Shipping />} />
