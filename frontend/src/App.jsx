@@ -14,6 +14,8 @@ import Privacy from "./pages/Privacy";
 import Warranty from "./pages/Warranty";
 import Terms from "./pages/Terms";
 import Shipping from "./pages/Shipping";
+import ProductDetail from "./pages/ProductDetail";
+
 
 
 
@@ -37,6 +39,10 @@ function App() {
           <Route path="/envios" element={<Shipping />} />
           <Route path="/privacidad" element={<Privacy />} />
           <Route path="/garantias" element={<Warranty />} />
+
+          <Route path="/sillas" element={<Chairs />} />
+          <Route path="/sillas/:id" element={<ProductDetail />} />
+          
         </Routes>
       </main>
 
