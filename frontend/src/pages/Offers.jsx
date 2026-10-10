@@ -1,7 +1,14 @@
 function Offers() {
   return (
-    <section>
-      <h1>Ofertas</h1>
+    <section className="maintenance-page">
+      <div className="maintenance-content">
+        <span>ARMOTEK</span>
+        <h1>En mantenimiento</h1>
+        <p>
+          Estamos trabajando en nuestra sección ofertas.
+          Esta información estará disponible próximamente.
+        </p>
+      </div>
     </section>
   );
 }
