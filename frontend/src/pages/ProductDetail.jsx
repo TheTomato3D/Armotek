@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
 
@@ -373,6 +374,14 @@ const products = [
 function ProductDetail() {
   const { id } = useParams();
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [id]);
+
   const product = products.find(
     (item) => item.id === Number(id)
   );
@@ -426,15 +435,24 @@ function ProductDetail() {
 
             <div className="detail-divider"></div>
 
-            <button className="add-quote-button">
-            <ShoppingCart size={19} />
-            Agregar a cotización
-            </button>
+            <a
+            href={`https://wa.me/51951155065?text=${encodeURIComponent(
+              `Hola, buen día. Estoy interesado(a) en uno de sus productos y quisiera recibir más información.
 
-            <p className="quote-message">
-            Agrega este producto a tu lista y solicita una
-            cotización personalizada por WhatsApp.
-            </p>
+          Producto: ${product.name}
+
+          ¿Podrían brindarme información sobre disponibilidad, precio y características? Gracias.`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="add-quote-button"
+          >
+            Consultar por WhatsApp
+          </a>
+
+          <p className="quote-message">
+            Consulta directamente con nuestro equipo sobre este producto vía WhatsApp.
+          </p>
 
           </div>
 
