@@ -1014,8 +1014,13 @@ button {
   }
 
   .logo {
-    font-size: 23px;
-  }
+  font-size: 23px;
+  margin-right: 0;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
   .nav-links {
     display: none;
