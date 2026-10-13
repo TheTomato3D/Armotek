@@ -1,15 +1,18 @@
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Categories from "../components/Categories";
+import Chairs from "./Chairs";
 import Benefits from "../components/Benefits";
-
 
 function Home() {
   return (
     <>
       <Hero />
-      <About/>
-      <Categories />
+      <About />
+
+      <div id="catalogo">
+        <Chairs />
+      </div>
+
       <Benefits />
     </>
   );
