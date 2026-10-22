@@ -811,31 +811,43 @@ button {
 }
 
 @media (max-width: 520px) {
-
   .catalog-page {
-
-    padding: 50px 5% 70px;
-
+    padding: 40px 4% 60px;
   }
 
   .catalog-header h1 {
-
-    font-size: 42px;
-
+    font-size: 38px;
   }
 
   .products-grid {
-
-    grid-template-columns: 1fr;
-
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .product-image {
-
-    height: 320px;
-
+    height: 180px;
+    padding: 15px;
   }
 
+  .product-info {
+    padding: 15px;
+  }
+
+  .product-info h2 {
+    min-height: 58px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .product-category {
+    font-size: 9px;
+  }
+
+  .product-button {
+    margin-top: 14px;
+    padding: 11px 12px;
+    font-size: 11px;
+  }
 }
 
 /* ==================================
