@@ -223,9 +223,7 @@ function Chairs() {
                       ? "sidebar-category active"
                       : "sidebar-category"
                   }
-                  onClick={() =>
-                    setActiveCategory(category)
-                  }
+                  onClick={() => setActiveCategory(category)}
                 >
                   {category}
                 </button>
@@ -233,32 +231,6 @@ function Chairs() {
 
             </div>
           )}
-
-          {/* OTRAS CATEGORÍAS */}
-
-          <Link
-            to="/muebles"
-            className="sidebar-link"
-          >
-            <span>Muebles</span>
-            <ChevronRight size={17} />
-          </Link>
-
-          <Link
-            to="/ofertas"
-            className="sidebar-link"
-          >
-            <span>Ofertas</span>
-            <ChevronRight size={17} />
-          </Link>
-
-          <Link
-            to="/liquidacion"
-            className="sidebar-link"
-          >
-            <span>Liquidación</span>
-            <ChevronRight size={17} />
-          </Link>
 
         </aside>
 
@@ -288,9 +260,7 @@ function Chairs() {
                 type="text"
                 placeholder="Buscar silla..."
                 value={search}
-                onChange={(e) =>
-                  setSearch(e.target.value)
-                }
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div>
 
