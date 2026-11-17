@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import hero1 from "../assets/images/hero-1.jpg";
@@ -64,7 +63,17 @@ function Hero() {
         </p>
 
         <div className="hero-buttons">
-          <a href="#catalogo" className="btn-primary">
+          <a
+            href="#catalogo"
+            className="btn-primary"
+            onClick={(event) => {
+              event.preventDefault();
+              document.getElementById("catalogo")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
             Ver catálogo →
           </a>
 

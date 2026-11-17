@@ -1,10 +1,14 @@
 import Chairs from "./Chairs";
+import Hero from "../components/Hero";
 
 function Home() {
   return (
-    <div id="catalogo">
-      <Chairs />
-    </div>
+    <>
+      <Hero />
+      <div id="catalogo">
+        <Chairs />
+      </div>
+    </>
   );
 }
 

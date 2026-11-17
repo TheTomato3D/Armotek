@@ -7,6 +7,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import Home from "./pages/Home";
 import Chairs from "./pages/Chairs";
 import ProductDetail from "./pages/ProductDetail";
+import Furniture from "./pages/Furniture";
 
 import Returns from "./pages/Returns";
 import Privacy from "./pages/Privacy";
@@ -25,6 +26,7 @@ function App() {
 
           <Route path="/sillas" element={<Chairs />} />
           <Route path="/sillas/:id" element={<ProductDetail />} />
+          <Route path="/muebles" element={<Furniture />} />
 
           <Route path="/terminos-condiciones" element={<Terms />} />
           <Route path="/devoluciones" element={<Returns />} />

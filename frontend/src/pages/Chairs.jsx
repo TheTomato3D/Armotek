@@ -1,12 +1,10 @@
 import { useState } from "react";
 import {
-  Search,
   SlidersHorizontal,
   ArrowRight,
-  ChevronDown,
-  ChevronRight,
+  Search,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import pissaImg from "../assets/images/products/silla-pissa.png";
 import turiaImg from "../assets/images/products/silla-turia.png";
@@ -25,20 +23,6 @@ import volgaImg from "../assets/images/products/silla-volga-2.webp";
 import amiaImg from "../assets/images/products/silla-amia.webp";
 import hungriaImg from "../assets/images/products/silla-hungria.webp";
 import belgicaImg from "../assets/images/products/silla-belgica.webp";
-
-const categories = [
-  "Todas",
-  "Gerenciales",
-  "Ejecutivas",
-  "Secretariales",
-  "Visita",
-  "Banquetas",
-  "Cajero",
-  "Laboratorio",
-  "Banquitos",
-  "Comedor / Bar",
-  "SUM",
-];
 
 const products = [
   {
@@ -146,11 +130,9 @@ const products = [
 ];
 
 function Chairs() {
-  const [activeCategory, setActiveCategory] = useState("Todas");
-  const [search, setSearch] = useState("");
-
-  // ABRIR / CERRAR SUBCATEGORÍAS DE SILLAS
-  const [chairsOpen, setChairsOpen] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeCategory = searchParams.get("categoria") || "Todas";
+  const [search, setSearch] = useState(searchParams.get("buscar") || "");
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
@@ -182,61 +164,7 @@ function Chairs() {
         </p>
       </div>
 
-      {/* CATÁLOGO + BARRA LATERAL */}
-
-      <div className="catalog-layout">
-
-        {/* BARRA LATERAL */}
-
-        <aside className="catalog-sidebar">
-
-          <h3>Categorías</h3>
-
-          {/* SILLAS - RETRÁCTIL */}
-
-          <button
-            type="button"
-            className="sidebar-main-category"
-            onClick={() => setChairsOpen(!chairsOpen)}
-            aria-expanded={chairsOpen}
-            style={{ width: "100%" }}
-          >
-            <span>Sillas</span>
-
-            {chairsOpen ? (
-              <ChevronDown size={18} />
-            ) : (
-              <ChevronRight size={18} />
-            )}
-          </button>
-
-          {/* SUBCATEGORÍAS DE SILLAS */}
-
-          {chairsOpen && (
-            <div className="sidebar-subcategories">
-
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={
-                    activeCategory === category
-                      ? "sidebar-category active"
-                      : "sidebar-category"
-                  }
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </button>
-              ))}
-
-            </div>
-          )}
-
-        </aside>
-
-        {/* CONTENIDO */}
-
-        <div className="catalog-content">
+      <div className="catalog-content">
 
           {/* HERRAMIENTAS */}
 
@@ -253,16 +181,26 @@ function Chairs() {
               </span>
             </div>
 
-            <div className="catalog-search">
+            <form
+              className="catalog-search"
+              onSubmit={(event) => event.preventDefault()}
+            >
               <Search size={18} />
-
               <input
-                type="text"
-                placeholder="Buscar silla..."
+                type="search"
+                placeholder="¿Qué silla o mueble de oficina está buscando?"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setSearch(value);
+                  setSearchParams((params) => {
+                    if (value) params.set("buscar", value);
+                    else params.delete("buscar");
+                    return params;
+                  });
+                }}
               />
-            </div>
+            </form>
 
           </div>
 
@@ -326,8 +264,6 @@ function Chairs() {
             </div>
 
           )}
-
-        </div>
 
       </div>
 
